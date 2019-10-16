@@ -1,0 +1,17 @@
+header {
+  background: #FEE500;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-content {
+  width: 100%;
+  max-width: 960px;
+  display: flex;
+  justify-content: space-between;
+  height: 35px;
+  //align-items: center;
+  margin: 5px 0;
+}

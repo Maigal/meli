@@ -1,0 +1,26 @@
+@import '../../styles/_variables';
+
+.breadcrumbs {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  text-decoration: none;
+  color: $dark-gray;
+
+  &.breadcrumb-current {
+    font-weight: 600;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.breadcrumb-separator {
+  font-size: 14px;
+  margin: 0 5px;
+}
