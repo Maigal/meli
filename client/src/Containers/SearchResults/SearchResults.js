@@ -12,6 +12,7 @@ const SearchResults = ({cleanSearch, fetchStatus, currentSearch, submitSearch, f
   useEffect(() => {
     const param = new URLSearchParams(location.search).get('search')
     if (param && param !== currentSearch) {
+      
       submitSearch(param)
     }
     return () => {
@@ -22,6 +23,7 @@ const SearchResults = ({cleanSearch, fetchStatus, currentSearch, submitSearch, f
   useEffect(() => {
     if (currentSearch !== '') {
       fetchSearchResults(currentSearch)
+      console.log('search desde results', currentSearch)
     }
   }, [currentSearch]);
 

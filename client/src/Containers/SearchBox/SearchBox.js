@@ -4,6 +4,7 @@ import iconSearch from './../../assets/images/icon-search.svg'
 import * as searchActions from '../../actions/searchActions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const SearchBox = ({currentSearch, submitSearch, history}) => {
 
@@ -32,6 +33,11 @@ const SearchBox = ({currentSearch, submitSearch, history}) => {
 const mapStateToProps = state => ({
   currentSearch: state.search.currentSearch
 });
+
+SearchBox.propTypes = {
+  currentSearch: PropTypes.string,
+  submitSearch: PropTypes.func,
+}
 
 
 export default connect(mapStateToProps, searchActions)(withRouter(SearchBox));

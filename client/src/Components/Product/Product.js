@@ -1,9 +1,17 @@
 import React from 'react';
 import './Product.scss';
 import { getFormattedPrice } from '../../helpers';
+import PropTypes from 'prop-types';
+
+/**
+ * Component that renders all product details
+ * @prop {Object} item All the properties that the product details should render
+*/
+
 
 const Product = ({item}) => {
 
+  // Returns an error message if the object is empty, which means there are no results
   if (JSON.stringify(item) === '{}') {
     return (
       <p>Invalid product ID.</p>
@@ -28,12 +36,31 @@ const Product = ({item}) => {
           {item.title}
         </h2>
         <div className="product__price">
-          <span>$ {getFormattedPrice(item.price.amount)}</span> <span className="product__decimals">{item.price.decimals != 0 ? item.price.decimals : '00'}</span>
+          <span>$ {getFormattedPrice(item.price.amount)}</span> 
+          <span className="product__decimals">{item.price.decimals !== 0 ? item.price.decimals : '00'}</span>
         </div>
         <button className="product__button-buy-now">Comprar</button>
       </div>
     </div>
   )
+}
+
+Product.propTypes = {
+  item: PropTypes.shape({
+    categories: PropTypes.arrayOf(PropTypes.string),
+    id: PropTypes.string,
+    condition: PropTypes.string,
+    description: PropTypes.string,
+    free_shipping: PropTypes.bool,
+    picture: PropTypes.string,
+    price: PropTypes.shape({
+      currency: PropTypes.string,
+      amount: PropTypes.number,
+      decimals: PropTypes.number
+    }),
+    sold_quantity: PropTypes.number,
+    title: PropTypes.string
+  })
 }
 
 

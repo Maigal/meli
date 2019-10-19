@@ -4,6 +4,10 @@ import logo from './../../assets/images/logo-mercado-libre.png'
 import SearchBox from '../../Containers/SearchBox/SearchBox';
 import { Link } from 'react-router-dom';
 
+/**
+ * Static header component
+*/
+
 const Header = () => {
     return (
       <header>

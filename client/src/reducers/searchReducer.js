@@ -9,9 +9,7 @@ const searchReducer = (state = initialState, action) => {
   switch (action.type) {
 
     case 'CLEAN_SEARCH':
-      return {
-        initialState
-      }
+      return initialState;
 
     case 'SET_SEARCH_STRING':
       return {

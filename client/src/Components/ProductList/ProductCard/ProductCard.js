@@ -11,7 +11,8 @@ export const ProductCard = ({data, history}) => {
     id,
     picture,
     price,
-    title
+    title,
+    state_name
   } = data;
 
   return (
@@ -30,7 +31,7 @@ export const ProductCard = ({data, history}) => {
             </div>
           </div>
           <div className="product-card__location">
-            Buenos Aires
+            {state_name}
           </div>
           
         </div>

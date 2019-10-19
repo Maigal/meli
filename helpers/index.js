@@ -17,7 +17,8 @@ module.exports = {
       price: getItemPrice(item.price, item.currency_id),
       picture: item.thumbnail,
       condition: item.condition,
-      free_shipping: item.shipping.free_shipping
+      free_shipping: item.shipping.free_shipping,
+      state_name: item.address.state_name
     }
   },
   formatProductDetail(item) {
@@ -30,7 +31,7 @@ module.exports = {
       free_shipping: item.shipping.free_shipping,
       sold_quantity: item.sold_quantity,
       description: item.productDescription,
-      categories: item.productCategories.map(category => category.name)
+      categories: item.productCategories.map(category => category.name),
     }
   }
 }
