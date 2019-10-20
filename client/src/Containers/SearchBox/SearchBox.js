@@ -1,19 +1,27 @@
 import React, { useState } from 'react';
 import './SearchBox.scss';
-import iconSearch from './../../assets/images/icon-search.svg'
+import iconSearch from './../../assets/images/icon-search.svg';
 import * as searchActions from '../../actions/searchActions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const SearchBox = ({currentSearch, submitSearch, history}) => {
+/**
+ * Component that handles searches and redirects to the corresponding search results
+ * @prop {String} currentSearch Current value used for searching
+ * @prop {Function} submitSearch Action that submits the next search value
+ * @prop {Object} history Provides URL history
+*/
+
+
+export const SearchBox = ({currentSearch, submitSearch, history}) => {
 
   const [searchString, setSearchString] = useState('');
 
   const handleSubmit = ev => {
     ev.preventDefault();
     
-    if (searchString !== currentSearch) {
+    if (searchString !== '' && searchString !== currentSearch) {
       submitSearch(searchString)
       history.push(`/items?search=${searchString}`)
     }
@@ -37,6 +45,7 @@ const mapStateToProps = state => ({
 SearchBox.propTypes = {
   currentSearch: PropTypes.string,
   submitSearch: PropTypes.func,
+  history: PropTypes.object,
 }
 
 

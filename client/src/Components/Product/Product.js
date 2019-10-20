@@ -4,7 +4,7 @@ import { getFormattedPrice } from '../../helpers';
 import PropTypes from 'prop-types';
 
 /**
- * Component that renders all product details
+ * Component that renders the product details
  * @prop {Object} item All the properties that the product details should render
 */
 
@@ -36,7 +36,7 @@ const Product = ({item}) => {
           {item.title}
         </h2>
         <div className="product__price">
-          <span>$ {getFormattedPrice(item.price.amount)}</span> 
+          <span className="product__amount">$ {getFormattedPrice(item.price.amount)}</span> 
           <span className="product__decimals">{item.price.decimals !== 0 ? item.price.decimals : '00'}</span>
         </div>
         <button className="product__button-buy-now">Comprar</button>

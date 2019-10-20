@@ -9,11 +9,14 @@ import PropTypes from 'prop-types';
 
 /**
  * Component that defines what to render based on the product detail request status.
+ * @prop {Object} match Provides URL params detection
  * @prop {String} fetchStatus Status of the request
  * @prop {Object} details All the properties that the product details should render
+ * @prop {Function} fetchDetails Action that fetches the product details for a given ID
+ * @prop {Function} cleanDetails Cleanup action after component unmounts
 */
 
-const ProductDetails = ({match, fetchStatus, details, fetchDetails, cleanDetails}) =>  {
+export const ProductDetails = ({match, fetchStatus, details, fetchDetails, cleanDetails}) =>  {
 
   useEffect(() => {
     // When the component mounts, get the url param and create an action that will fetch the data
@@ -60,6 +63,9 @@ const mapStateToProps = state => ({
 });
 
 ProductDetails.propTypes = {
+  match: PropTypes.object,
+  fetchDetails: PropTypes.func,
+  cleanDetails: PropTypes.func,
   fetchStatus: PropTypes.string,
   details: PropTypes.shape({
     categories: PropTypes.arrayOf(PropTypes.string),

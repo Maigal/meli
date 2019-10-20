@@ -1,4 +1,4 @@
-const initialState = {
+export const initialState = {
   fetchStatus: '',
   products: [],
   categories: [],
@@ -41,9 +41,12 @@ const searchReducer = (state = initialState, action) => {
         categories: action.payload.categories
       }
 
-    case 'FETCH_PRODUCTS':
+    case 'FETCH_PRODUCTS_ERROR':
       return {
-        ...state
+        ...state,
+        fetchStatus: 'ERROR',
+        products: [],
+        categories: []
       }
 
     default:

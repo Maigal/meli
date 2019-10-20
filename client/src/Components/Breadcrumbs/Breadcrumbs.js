@@ -8,8 +8,10 @@ import PropTypes from 'prop-types';
 */
 
 const Breadcrumbs = ({data}) => {
-  return (
-    <div className="breadcrumbs">
+
+  if (data && Array.isArray(data) && data.length > 0) {
+    return (
+      <div className="breadcrumbs">
       {
         data && data.map((element, index) => (
           index === data.length -1 
@@ -21,7 +23,10 @@ const Breadcrumbs = ({data}) => {
         ))
       }
     </div>
-  )
+    )
+  }
+
+  return null;
 }
 
 Breadcrumbs.propTypes = {

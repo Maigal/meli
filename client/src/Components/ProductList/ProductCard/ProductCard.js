@@ -3,8 +3,15 @@ import './ProductCard.scss';
 import { getFormattedPrice } from '../../../helpers';
 import freeShippingIcon from '../../../assets/images/free-shipping.png';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-export const ProductCard = ({data, history}) => {
+
+/**
+ * Component that renders a product card
+ * @prop {Object} data All the properties that the product card should render
+*/
+
+export const ProductCard = ({data}) => {
 
   const {
     free_shipping,
@@ -24,7 +31,7 @@ export const ProductCard = ({data, history}) => {
           <div className="product-card__details">
             <div className="product-card__price">
               <span>$ {getFormattedPrice(price.amount)}</span>
-              {free_shipping && <img style={{marginLeft: "10px"}} src={freeShippingIcon} alt="Envío gratis" />}
+              {free_shipping && <img className="product-card__free-shipping" style={{marginLeft: "10px"}} src={freeShippingIcon} alt="Envío gratis" />}
             </div>
             <div className="product-card__title">
               {title}
@@ -37,6 +44,21 @@ export const ProductCard = ({data, history}) => {
         </div>
     </Link>
   )
+}
+
+ProductCard.propTypes = {
+  data: PropTypes.shape({
+    id: PropTypes.string,
+    free_shipping: PropTypes.bool,
+    picture: PropTypes.string,
+    price: PropTypes.shape({
+      currency: PropTypes.string,
+      amount: PropTypes.number,
+      decimals: PropTypes.number
+    }),
+    title: PropTypes.string,
+    state_name: PropTypes.string,
+  })
 }
 
 export default ProductCard;

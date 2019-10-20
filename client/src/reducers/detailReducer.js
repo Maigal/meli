@@ -1,4 +1,4 @@
-const initialState = {
+export const initialState = {
   fetchStatus: '',
   productDetails: null
 }
@@ -22,6 +22,13 @@ const detailsReducer = (state = initialState, action) => {
       return {
         ...state,
         fetchStatus: 'FINISHED',
+        productDetails: {}
+      }
+
+    case 'FETCH_DETAILS_ERROR':
+      return {
+        ...state,
+        fetchStatus: 'ERROR',
         productDetails: {}
       }
 
