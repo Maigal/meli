@@ -1,3 +1,9 @@
+/**
+ * Divides a price in integer/decimal
+ * @param {Number} price Full price (integer + decimal)
+ * @param {String} currency Currency of the price to convert
+ * @return {Object} Formatted price as needed by the client
+*/
 const getItemPrice = (price, currency) => {
   const amount = parseInt(price);
   const decimals = (price - amount).toFixed(2) * 100;
@@ -10,6 +16,11 @@ const getItemPrice = (price, currency) => {
 }
 
 module.exports = {
+  /**
+   * Formats a product in the correct format to serve the search results in the client
+   * @param  {Object} item Full item as received from the ML api
+   * @return {Object} Formatted product
+  */
   formatProductListItem(item) {
     return {
       id: item.id,
@@ -21,6 +32,11 @@ module.exports = {
       state_name: item.address.state_name
     }
   },
+  /**
+   * Formats a product in the correct format to serve the product details in the client
+   * @param  {Object} item Full item as received from the ML api
+   * @return {Object} Formatted product details
+  */
   formatProductDetail(item) {
     return {
       id: item.id,
