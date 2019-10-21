@@ -9,7 +9,7 @@ Run `npm start` in the root folder to concurrently run the server and the client
 The client will be hosted in `http://localhost:3000`.
 
 ## Testing
-Inside the folder **/client**  you can run either
+You can run either
 
 > npm run test
 

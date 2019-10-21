@@ -6,7 +6,8 @@
   "scripts": {
     "start": "concurrently \"nodemon index\" \"npm start --prefix client\"",
     "prod": "node index",
-    "test": "npm run test"
+    "test": "npm run test --prefix ./client/",
+    "coverage": "npm run coverage --prefix ./client/"
   },
   "author": "Matias Almeida",
   "license": "ISC",
