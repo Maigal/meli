@@ -81,9 +81,7 @@ ProductDetails.propTypes = {
     }),
     sold_quantity: PropTypes.number,
     title: PropTypes.string
-  }),
-  fetchDetails: PropTypes.func,
-  cleanDetails: PropTypes.func
+  })
 }
 
 
