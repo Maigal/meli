@@ -1,7 +1,5 @@
 # MELI CHALLENGE
 
-[Live demo](http://34.95.172.176:3000)
-
 ## Setup
 Run `npm install` in order to install all the server dependencies.
 Run `npm install` inside the folder **/client** in order to install all the client dependencies.
